@@ -7,7 +7,7 @@
 <h1>List of books</h1>
 
 <p>
-    <a class="btn btn-success" asp-action="Create">Create New</a>
+    <a class="btn btn-info" asp-action="Create">Create New</a>
 </p>
 
 @if (TempData["Message"] != null)
@@ -26,10 +26,12 @@
     <thead>
         <tr>
             <th>
-                @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm })
+                Title
+                @Html.ActionLink(" (sort)", "Index", new { sortOrder = ViewBag.TitleSortParm })
             </th>
             <th>
-                @Html.ActionLink("Author", "Index", new { sortOrder = ViewBag.AuthorSortParm })
+                Author
+                @Html.ActionLink(" (sort)", "Index", new { sortOrder = ViewBag.AuthorSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Publisher)
@@ -56,9 +58,9 @@
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
-                @Html.ActionLink("Sell now", "Sell", new {  id=item.BookId }, new {@class="btn btn-warning"}) 
+                @Html.ActionLink("Sell now", "Sell", new {  id=item.BookId }, new {@class="btn btn-success"}) 
                 @Html.ActionLink("Edit", "Edit", new {  id=item.BookId }, new {@class="btn btn-info"}) 
-                @Html.ActionLink("Details", "Details", new {  id=item.BookId}, new {@class="btn btn-info"}) 
+                @Html.ActionLink("Details", "Details", new {  id=item.BookId}, new {@class="btn btn-warning"}) 
                 @Html.ActionLink("Delete", "Delete", new { id=item.BookId  }, new {@class="btn btn-danger"})
             </td>
         </tr>

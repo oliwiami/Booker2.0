@@ -8,7 +8,7 @@ sortowanie |
 wysukiwanie |
 filtrowanie |
 
-role do userów 
+role do userów |
 wypełnić bazę danych 
 
 podzielenie wyniku na strony 
