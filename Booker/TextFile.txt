@@ -1,8 +1,8 @@
 ﻿To do list:
 
-obsługa errorów,
-home page
-privacy page
+obsługa errorów ?
+home page |
+privacy page ?
 css ??
 sortowanie |
 wysukiwanie |
@@ -10,4 +10,5 @@ filtrowanie |
 
 role do userów 
 wypełnić bazę danych
+
 podzielenie wyniku na strony 

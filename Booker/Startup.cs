@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PagedList.Mvc;
 
 namespace Booker
 {
@@ -39,7 +40,9 @@ namespace Booker
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            
+
+
+
             services.AddTransient<IBooksRepository, BookRepository>();
         }
 
