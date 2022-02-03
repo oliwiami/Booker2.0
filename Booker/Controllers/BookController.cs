@@ -122,7 +122,7 @@ namespace Booker.Controllers
         }
 
         //GET: BookController/Sell/5
-        [Authorize]
+        [Authorize(Roles ="manager, admin")]
         public ActionResult Sell(int id)
         {
             return View(bookRepository.GetBookByID(id));
