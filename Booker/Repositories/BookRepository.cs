@@ -49,10 +49,6 @@ namespace Booker.Repositories
                 context.SaveChanges();
             }
         }
-        public void Save()
-        {
-            context.SaveChanges();
-        }
 
         public bool SellBook(int bookid, Books book)
         {
