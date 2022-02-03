@@ -4,9 +4,9 @@ obsługa errorów,
 home page
 privacy page
 css ??
-sortowanie
-wysukiwanie
-filtrowanie
+sortowanie |
+wysukiwanie |
+filtrowanie |
 
 role do userów 
 wypełnić bazę danych

@@ -6,14 +6,21 @@
 
 <h1>Catalog</h1>
 
+@using (Html.BeginForm())
+{
+    <p>
+        Find by title or author: @Html.TextBox("SearchString")  
+        <input type="submit" value="Search" /></p>
+}
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.ActionLink("Title", "Catalog", new { sortOrder = ViewBag.TitleSortParm })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Author)
+                @Html.ActionLink("Author", "Catalog", new { sortOrder = ViewBag.AuthorSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Publisher)

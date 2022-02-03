@@ -14,5 +14,6 @@ namespace Booker.Repositories
         void UpdateBook(int bookId, Books book);
         bool SellBook(int bookId, Books book);
         IQueryable<Books> GetBooksInStock();
+
     }
 }
