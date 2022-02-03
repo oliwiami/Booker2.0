@@ -24,7 +24,7 @@ namespace Booker.Models
         [DisplayName("Publish Date")]
         [Required]
         [DisplayFormat(DataFormatString ="{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime Publishdate { get; set; } = DateTime.Now;
+        public DateTime Publishdate { get; set; }
 
         [Required]
         [Range(0,101, ErrorMessage ="No.")]

@@ -75,7 +75,10 @@ namespace Booker.Repositories
             {
                 return false;
             }
-            
+        }
+       public IQueryable<Books> GetBooksInStock()
+        {
+            return context.Books.Where(b => b.Quantity > 0);
         }
     }
 }

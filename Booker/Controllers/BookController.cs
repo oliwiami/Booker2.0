@@ -17,7 +17,7 @@ namespace Booker.Controllers
         }
 
         // GET: BookController
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult Index()
         {
             return View(bookRepository.GetBooks());
@@ -97,6 +97,11 @@ namespace Booker.Controllers
             TempData["Message"] = "This book is not in stock";
             return RedirectToAction(nameof(Index));
         }
-
+        // GET: BookController/Authorized
+        [AllowAnonymous]
+        public ActionResult Catalog()
+        {
+            return View(bookRepository.GetBooksInStock());
+        }
     }
 }

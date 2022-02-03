@@ -3,6 +3,30 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Home</h1>
-
-<h3>Get back to work</h3>
+<div class="text-center">
+    <h1 class="display-4">Welcome to Booker</h1>
+    <p>A professional Web App for book store inventory management.</p>
+</div>
+<style>
+    .table{
+        margin-left: auto;
+        margin-right: auto;
+        text-align:center;
+    }
+</style>
+<body>
+    <table class="table">
+    <thead>
+        <tr>
+            <td>
+                <a class="nav-link text-primary" asp-area="" asp-controller="Book" asp-action="Catalog">View Catalog</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               <a class="nav-link text-danger" asp-area="" asp-controller="Book" asp-action="Index">Manage Inventory</a>
+            </td>
+        </tr>
+    </thead>
+    </table>
+</body>
