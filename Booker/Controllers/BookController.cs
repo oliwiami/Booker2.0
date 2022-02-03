@@ -89,6 +89,7 @@ namespace Booker.Controllers
         }
        // [Authorize(Roles = "admin")]
         // GET: BookController/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             return View(bookRepository.GetBookByID(id));
@@ -120,7 +121,7 @@ namespace Booker.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //GET: BookController/Buy/5
+        //GET: BookController/Sell/5
         [Authorize]
         public ActionResult Sell(int id)
         {
