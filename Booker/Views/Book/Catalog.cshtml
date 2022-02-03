@@ -17,10 +17,12 @@
     <thead>
         <tr>
             <th>
-                @Html.ActionLink("Title", "Catalog", new { sortOrder = ViewBag.TitleSortParm })
+                Title
+                @Html.ActionLink(" (sort)", "Catalog", new { sortOrder = ViewBag.TitleSortParm })
             </th>
             <th>
-                @Html.ActionLink("Author", "Catalog", new { sortOrder = ViewBag.AuthorSortParm })
+                Author
+                @Html.ActionLink(" (sort)", "Catalog", new { sortOrder = ViewBag.AuthorSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Publisher)

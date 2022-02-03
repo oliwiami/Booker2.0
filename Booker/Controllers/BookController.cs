@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Booker.Models;
+﻿using Booker.Models;
 using Booker.Repositories;
 using Microsoft.AspNetCore.Authorization;
-using StackExchange.Redis;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
 
@@ -39,7 +37,7 @@ namespace Booker.Controllers
             ViewBag.CurrentFilter = searchString;
 
             var books = from b in bookRepository.GetBooks()
-                           select b;
+                        select b;
             if (!String.IsNullOrEmpty(searchString))
             {
                 books = books.Where(b => b.Title.ToUpper().Contains(searchString.ToUpper())
@@ -87,8 +85,9 @@ namespace Booker.Controllers
             bookRepository.InsertBook(bookModel);
             return RedirectToAction(nameof(Index));
         }
-       // [Authorize(Roles = "admin")]
+        // [Authorize(Roles = "admin")]
         // GET: BookController/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             return View(bookRepository.GetBookByID(id));
@@ -99,9 +98,9 @@ namespace Booker.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Books bookModel)
         {
-           bookRepository.UpdateBook(id, bookModel);
-           return RedirectToAction(nameof(Index));
-           
+            bookRepository.UpdateBook(id, bookModel);
+            return RedirectToAction(nameof(Index));
+
         }
 
         // GET: BookController/Delete/5
@@ -120,8 +119,8 @@ namespace Booker.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //GET: BookController/Buy/5
-        [Authorize]
+        //GET: BookController/Sell/5
+        [Authorize(Roles = "manager, admin")]
         public ActionResult Sell(int id)
         {
             return View(bookRepository.GetBookByID(id));
@@ -142,20 +141,12 @@ namespace Booker.Controllers
 
         // GET: BookController/Catalog
         [AllowAnonymous]
-        public ActionResult Catalog(string sortOrder, string currentFilter, string searchString, int? page)
+        public ActionResult Catalog(string sortOrder, string currentFilter, string searchString)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewBag.AuthorSortParm = String.IsNullOrEmpty(sortOrder) ? "author_desc" : "";
 
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
             ViewBag.CurrentFilter = searchString;
 
             var books = from b in bookRepository.GetBooksInStock()
@@ -177,9 +168,6 @@ namespace Booker.Controllers
                     books = books.OrderBy(b => b.Title);
                     break;
             }
-
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
             return View(books);
         }
 
